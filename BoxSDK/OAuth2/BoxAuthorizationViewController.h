@@ -30,6 +30,8 @@
  */
 @interface BoxAuthorizationViewController : UIViewController <UIWebViewDelegate, NSURLConnectionDataDelegate, UIAlertViewDelegate>
 
+@property(nonatomic, copy) void (^completionBlock)(void);
+
 /** @name Delegate */
 
 /**

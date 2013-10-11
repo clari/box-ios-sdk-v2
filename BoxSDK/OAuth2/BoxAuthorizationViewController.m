@@ -57,7 +57,7 @@
 		_connectionIsTrusted = NO;
 		_hasLoadedLoginPage = NO;
 
-		[self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel:)]];
+		//[self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel:)]];
 
 		NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
 		_preexistingCookies = [[cookieStorage cookies] copy];
@@ -71,6 +71,8 @@
 {
 	[self clearCookies];
 	[[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookieAcceptPolicy:_preexistingCookiePolicy];
+    //Let the caller know we're done, so we can re-establish our cookies.
+    self.completionBlock();
 }
 
 - (void)loadView
