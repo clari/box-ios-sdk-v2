@@ -71,6 +71,12 @@
 {
 	[self clearCookies];
 	[[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookieAcceptPolicy:_preexistingCookiePolicy];
+    
+    if(self.view && [self.view isKindOfClass:[UIWebView class]])
+    {
+        UIWebView *wv = (UIWebView*)self.view;
+        wv.delegate = nil;
+    }
 }
 
 - (void)loadView
