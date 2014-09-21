@@ -159,11 +159,14 @@
 	NSArray *cookies = [[cookieStorage cookies] copy];
 	for (NSHTTPCookie *cookie in cookies)
 	{
-		if ([self.preexistingCookies containsObject:cookie] == NO)
-		{
-			[cookieStorage deleteCookie:cookie];
-			BOXLog(@"Clearing cookie with domain %@, name %@", cookie.domain, cookie.name);
-		}
+        if(![cookie.domain hasSuffix:@"clari.com"])
+        {
+            if ([self.preexistingCookies containsObject:cookie] == NO)
+            {
+                [cookieStorage deleteCookie:cookie];
+                BOXLog(@"Clearing cookie with domain %@, name %@", cookie.domain, cookie.name);
+            }
+        }
 	}
 }
 
