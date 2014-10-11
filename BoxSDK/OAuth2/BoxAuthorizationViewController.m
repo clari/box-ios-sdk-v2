@@ -285,7 +285,8 @@
 {
 	BOXLogFunction();
 	[self.delegate authorizationViewControllerDidFinishLoading:self];
-	self.connectionIsTrusted = NO;
+//    Fix for "Login faiure: unsupported url error"
+//	self.connectionIsTrusted = NO;
 }
 
 #pragma mark - NSURLConnectionDelegate methods
