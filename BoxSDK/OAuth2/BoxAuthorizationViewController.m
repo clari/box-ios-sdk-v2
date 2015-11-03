@@ -88,7 +88,7 @@
 	[webView setScalesPageToFit:YES];
 	webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	webView.delegate = self;
-
+    self.title = @"Box";
 	self.view = webView;
 }
 
